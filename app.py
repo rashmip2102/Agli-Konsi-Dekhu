@@ -4,7 +4,7 @@ import pandas as pd
 import requests
 
 def fetch_poster(movie_id):
-    api_key = "9f02567388789873fc5653ae8bbc4806"
+    api_key = st.secrets["TMDB_API_KEY"]
     
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
