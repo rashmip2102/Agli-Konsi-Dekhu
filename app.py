@@ -2,7 +2,16 @@ import streamlit as st
 import pickle
 import pandas as pd
 import requests
+import os
+import gdown
 
+SIMILARITY_FILE = 'similarity.pkl'
+DRIVE_FILE_ID = '1spDkXLXf5yKmdurBm6cTxo50ph1F0gqM'
+
+if not os.path.exists(SIMILARITY_FILE):
+    with st.spinner("Downloading recommendation model matrix... Please wait."):
+        url = f'https://drive.google.com/uc?id={DRIVE_FILE_ID}'
+        gdown.download(url, SIMILARITY_FILE, quiet=False)
 def fetch_poster(movie_id):
     api_key = st.secrets["TMDB_API_KEY"]
     
